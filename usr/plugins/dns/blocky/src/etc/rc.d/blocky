@@ -1,0 +1,86 @@
+#!/bin/sh
+
+# PROVIDE: blocky
+# REQUIRE: DAEMON NETWORKING
+# KEYWORD: shutdown
+#
+# Add the following to /etc/rc.conf[.local] to enable this service
+#
+# blocky_enable (bool):	Set to NO by default.
+#			Set it to YES to enable blocky.
+# blocky_config (str):	Set to /usr/local/etc/blocky-config.yml by default.
+#			Set it to a path to use that config file.
+# blocky_config_sample: Set to /usr/local/etc/blocky-config-sample.yml by default
+#			Set it to a path to use sample config file.
+# blocky_user (str):	Services run as root by default. Set to a user name
+#			to run blocky as that user. Note: non-root users
+#			might need permission to bind to ports.
+# blocky_group (str):	Set to the user's primary group by default.
+#			Set it to a group name for daemon file ownership.
+# blocky_flags (str):	Enter extra flags to append to the blocky command.
+#!/bin/sh
+
+. /etc/rc.subr
+name=blocky
+rcvar=blocky_enable
+
+load_rc_config ${name}
+
+
+: ${blocky_enable:=NO}
+: ${blocky_config:="/usr/local/etc/blocky-config.yml"}
+: ${blocky_group:=}
+: ${blocky_flags:=}
+: ${blocky_config_sample:="/usr/local/etc/blocky-config-sample.yml"}
+
+logfile="/var/log/${name}.log"
+pidfile="/var/run/${name}.pid"
+blocky_path="/usr/local/bin/blocky"
+
+if [ -n "${blocky_user}" ] && [ -z "${blocky_group}" ]; then
+	# Detect the daemon user's primary group
+	blocky_group=$(id -gn "${blocky_user}")
+fi
+
+
+command="/usr/sbin/daemon"
+procname="/usr/local/bin/blocky"
+command_args="-c -f -o ${logfile} -p ${pidfile} ${blocky_path} -c ${blocky_config} ${blocky_flags}"
+
+start_precmd="blocky_precmd"
+# Sets up a pidfile the daemon user can access
+blocky_precmd()
+{
+	install -o "${blocky_user:-root}" -g "${blocky_group:-wheel}" -m 0600 /dev/null "${pidfile}"
+}
+
+
+status_cmd=blocky_status
+blocky_status()
+{
+	if [ -n "$rc_pid" ]; then
+		echo "${name} [OPNsense plugin] is running as pid $rc_pid."
+		return 0
+	else
+		echo "${name} is not running."
+  fi
+}
+
+#stop_cmd="killall blocky"
+stop_cmd=blocky_stop
+blocky_stop()
+{
+	killall blocky
+}
+
+
+# Create blocky-config from sample, else do not overwrite existing
+if [ -f "${blocky_config}" ]; then
+  # If config file exists, do not overwrite; do nothing !
+ else
+  # If no config file found; assume new install; copy sample as config file 
+  cp "${blocky_config_sample}" "${blocky_config}";
+fi
+
+
+run_rc_command "$1"

@@ -1,0 +1,5 @@
+{% if helpers.exists('OPNsense.blocky.general.enabled') and OPNsense.blocky.general.enabled == '1' %}
+blocky_enable="YES"
+{% else %}
+blocky_enable="NO"
+{% endif %}

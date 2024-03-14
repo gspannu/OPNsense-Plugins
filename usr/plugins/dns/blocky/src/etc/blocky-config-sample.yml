@@ -1,0 +1,13 @@
+# Created  2024-03-13
+upstream:
+  default:
+    - 1.1.1.1
+blocking:
+  blackLists:
+    ads:
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+  clientGroupsBlock:
+    default:
+      - ads
+port: 53
+httpPort: 4000

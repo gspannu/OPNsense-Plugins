@@ -1,0 +1,9 @@
+<acl>
+   <page-services-blocky>
+      <name>Services: Blocky</name>
+      <patterns>
+         <pattern>ui/blocky/*</pattern>
+         <pattern>api/blocky/*</pattern>
+      </patterns>
+   </page-services-blocky>
+</acl>

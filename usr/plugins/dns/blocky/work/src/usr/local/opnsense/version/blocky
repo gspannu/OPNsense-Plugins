@@ -1,0 +1,11 @@
+{
+    "product_abi": "24.1",
+    "product_arch": "amd64",
+    "product_email": "opnsense@gurupannu.com",
+    "product_hash": "28031db41",
+    "product_id": "os-blocky",
+    "product_name": "blocky",
+    "product_tier": "3",
+    "product_version": "0.23.3_6",
+    "product_website": "https://opnsense.org/"
+}

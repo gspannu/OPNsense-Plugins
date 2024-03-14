@@ -1,0 +1,14 @@
+<form>
+    <field>
+        <id>general.enabled</id>
+        <label>Enable</label>
+        <type>checkbox</type>
+        <help>Enable or disable Blocky</help>
+    </field>
+    <field>
+        <id>general.primarydns</id>
+        <label>Primary DNS</label>
+        <type>checkbox</type>
+        <help>Enable if Blocky using port 53, /usr/local/etc/blocky-config.yml</help>
+    </field>
+</form>

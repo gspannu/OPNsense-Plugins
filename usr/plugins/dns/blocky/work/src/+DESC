@@ -1,0 +1,16 @@
+Blocky DNS plugin for OPNsense plugin
+Read more about blocky here: https://github.com/0xERR0R/blocky
+Compiled by Guru Pannu, Copyright 2024
+**********************************************
+
+0.6
+* Now with updated version of blocky (v0.23_3)
+* Working Service Status (changes in rc.d/blocky) 
+* Made function of cmd_stop in rc.d - making it future change ready (killall blocky)
+
+0.5
+* Does not overwrite existing blocky-config.yml (/usr/local/etc)
+* Moved to dns folder, chnaged icon to fa-low-vision, should show correct icon under Services
+
+0.0
+* Initial release, contains Blocky v0.23_2

@@ -1,0 +1,17 @@
+/usr/local/bin/blocky
+/usr/local/etc/inc/plugins.inc.d/blocky.inc
+/usr/local/etc/rc.d/blocky
+/usr/local/etc/blocky-config-sample.yml
+/usr/local/opnsense/mvc/app/models/OPNsense/Blocky/Menu/Menu.xml
+/usr/local/opnsense/mvc/app/models/OPNsense/Blocky/General.php
+/usr/local/opnsense/mvc/app/models/OPNsense/Blocky/General.xml
+/usr/local/opnsense/mvc/app/models/OPNsense/Blocky/ACL/ACL.xml
+/usr/local/opnsense/mvc/app/controllers/OPNsense/Blocky/forms/general.xml
+/usr/local/opnsense/mvc/app/controllers/OPNsense/Blocky/Api/ServiceController.php
+/usr/local/opnsense/mvc/app/controllers/OPNsense/Blocky/Api/GeneralController.php
+/usr/local/opnsense/mvc/app/controllers/OPNsense/Blocky/GeneralController.php
+/usr/local/opnsense/mvc/app/views/OPNsense/Blocky/general.volt
+/usr/local/opnsense/service/templates/OPNsense/Blocky/blocky
+/usr/local/opnsense/service/templates/OPNsense/Blocky/+TARGETS
+/usr/local/opnsense/service/conf/actions.d/actions_blocky.conf
+/usr/local/opnsense/version/blocky
