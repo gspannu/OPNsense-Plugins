@@ -1,4 +1,6 @@
-## Install on OPNsense
+## Install this plugin on OPNsense
+
+---
 
 1. Login to OPNsense shell.
 2. Execute the below two commands in OPNsense shell (either as root user or use sudo)
@@ -17,13 +19,16 @@ sudo pkg update
 7. Once Blocky is confirmed working, you may configure the Blocky DNS configuration by directly editing blocky-config.yml file in /usr/local/etc/blocky-config.yml. Use something like `nano /usr/local/etc/blocky-config.yml`.
 8. On OPNsense GUI > Disable and Renable Blocky DNS
 9. All errors are logged in '/var/log/blocky.log'
-10. Also check that Blocky DNS is working as th eprimary dns resolver. In OPNsense shell, check `cat /etc/resol.conf` and it should have a nameserver entry for localhost (e.g. nameserver 127.0.0.1). OPNsense may require a restart for this. It is always advisable to restart OPNsense and check for this as well.
+10. Also check that Blocky DNS is working as the **primary dns** resolver.
+In OPNsense shell, execute `cat /etc/resol.conf` and it should have a nameserver entry for localhost (e.g. _nameserver 127.0.0.1_).
 ```
 [OPNsense] router:~ $ cat /etc/resolv.conf 
 domain home
 nameserver 127.0.0.1
 search home
 ```
+>OPNsense may require a restart for this to work. It is advisable to restart OPNsense and check this.
+
    ---
    
 ### Happy Ad-blocking
