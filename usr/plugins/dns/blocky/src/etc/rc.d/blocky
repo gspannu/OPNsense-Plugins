@@ -84,4 +84,13 @@ if [ -f "${BLOCKY_CONFIG}" ]; then
   cp "${BLOCKY_CONFIG_SAMPLE}" "${BLOCKY_CONFIG}";
 fi
 
+# Create blocky logfile directory and file
+if [ -f "${BLOCKY_LOGFILE}" ]; then
+  # If blocky log file exists, then do not overwrite; do nothing !
+ else
+  # If no blocky log file found; assume a new install; create log file 
+  mkdir /var/log/${BLOCKY_NAME};
+  touch "${BLOCKY_LOGFILE}";
+fi
+
 run_rc_command "$1"
