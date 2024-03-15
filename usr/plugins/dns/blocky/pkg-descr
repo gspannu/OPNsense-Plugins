@@ -3,6 +3,11 @@ Read more about blocky here: https://github.com/0xERR0R/blocky
 Compiled by Guru Pannu, Copyright 2024
 **********************************************
 
+0.7
+* Changed location of config files to /usr/local/etc/blocky/
+* Changed location of log file to var/log/blocky/
+* Changed config file names to config.yml and config.yml.sample
+* Some nimor chnages to variable names in rc.d/blocky - cleaner code
 0.6
 * Now with updated version of blocky (v0.23_3)
 * Working Service Status (changes in rc.d/blocky) 
