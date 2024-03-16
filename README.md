@@ -1,4 +1,4 @@
-## Install this plugin on OPNsense
+## Install Blocky DNS plugin on OPNsense
 
 ---
 
