@@ -16,11 +16,11 @@ sudo pkg update -f
 
 5. If Blocky is being used as the 'Primary DNS' then remember to _**disable**_ Unbound/dnsmasq or setUnbound/dnsmasq _**listening port**_ to something other than _**53**_, else Blocky DNS will not execute and throw an error.
 6. Goto Services, and a new entry for Blocky DNS should be available. Enable/ use as appropriate.
-7. Once Blocky is confirmed working, you may configure the Blocky DNS configuration by directly editing blocky-config.yml file in /usr/local/etc/blocky/blocky-config.yml. Use something like `nano /usr/local/etc/blocky/blocky-config.yml`.
+7. Once Blocky is confirmed working, you may configure the Blocky DNS configuration by directly editing blocky-config.yml file in /usr/local/etc/blocky/blocky-config.yml. Use something like `nano /usr/local/etc/blocky/blocky-config.yml`
 8. On OPNsense GUI > Disable and Renable Blocky DNS
 9. All errors are logged in '/var/log/blocky/blocky.log'
 10. Also check that Blocky DNS is working as the **primary dns** resolver.
-In OPNsense shell, execute `cat /etc/resol.conf` and it should have a nameserver entry for localhost (e.g. _nameserver 127.0.0.1_).
+In OPNsense shell, execute `cat /etc/resolv.conf` and it should have a nameserver entry for localhost (e.g. _nameserver 127.0.0.1_).
 ```
 [OPNsense] router:~ $ cat /etc/resolv.conf 
 domain home
