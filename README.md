@@ -32,5 +32,13 @@ search home
 11. OPNsense made some changes recently where the primary DNS (:53) now needs to be advertised specifically by 3rd party DNS resolvers, like Blocky, AdGuardHome, etc. The plugin has been updated with this property and it shoudl work. However, it is a good idea to define the DNS server (for each affected interface) in the DHCP page of OPNsense. See below.
 >OPNsense GUI > Services > ISC DHCPv4 > [InterfaceName] > DNS servers. Specify the [interface IP address] address here e.g. 192.168.1.1 or 192.168.10.1. Do this for all DHCPv4 interfaces and it ensures that all clients will obtain the router IP address as DNS resolver (just in case Blocky fails to register on port 53). Read about this issue here for more details: https://github.com/opnsense/core/issues/6513#issuecomment-1516642071
 ---
-   
+
+12. Removing os-blocky plugin
+
+```
+sudo rm /usr/local/etc/pkg/repos/guru-repo.conf
+sudo pkg update -f
+```
+
+---
 ### Happy DNS resolving and Adblocking !
