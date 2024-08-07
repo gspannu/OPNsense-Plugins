@@ -1,6 +1,12 @@
-## Install Blocky DNS plugin on OPNsense
+## Please refer to the [updated]([url](https://github.com/gspannu/OPN-Plugins)) repository
+https://github.com/gspannu/OPN-Plugins
 
 ---
+*This is an older repo and not supported.*
+
+
+ 
+Install Blocky DNS plugin on OPNsense
 
 1. Login to OPNsense shell.
 2. Execute the below two commands in OPNsense shell (either as root user or use sudo)
